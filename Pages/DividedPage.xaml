@@ -1,0 +1,88 @@
+﻿<Page x:Class="helpdesk.Pages.DividedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:helpdesk.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Title="DividedPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
+            <WrapPanel>
+            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0"  Margin = "5" Content="Назад"/>
+            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0" Margin = "5" Content="Вперёд"/>
+            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0" Margin = "5" Content="Импорт" Click="Open_Executed"/>
+            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0" Margin = "5" Content="Экспорт" Click="Save_Executed"/>
+            </WrapPanel>
+
+            <TextBox Style="{StaticResource Search}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        <TabControl Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Содержание</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListView x:Name="lvMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListViewItem x:Name="lviWelcome" Height="60" Selected="lviWelcome_Selected" IsSelected="False" >
+                            <WrapPanel>
+                                <materialDesign:PackIcon Margin="7"
+                                        Kind="HumanGreetingVariant" Width="30" Height="30"/>
+                                <TextBlock Text="Добро пожаловать!"  
+                                           Margin="20 10" VerticalAlignment="Center"/>
+                            </WrapPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="lviAddEditDelete" Height="60" Selected="lviAddEditDelete_Selected">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Margin="7"
+                                        Kind="CommentEditOutline" Width="30" Height="30"/>
+                                <TextBlock Text="Добавление - редактирование - удаление вопросов и ответов в СС."  
+                                           Margin="20 0 0 0" VerticalAlignment="Center"/>
+                            </WrapPanel>
+                        </ListViewItem>
+                    </ListView>
+                    <!--<StackPanel HorizontalAlignment="Left">
+                        <WrapPanel>
+                            <RadioButton Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}" x:Name="rbHello" IsChecked="True">
+                            </RadioButton>
+                            <TextBlock Text="Добро пожаловать!"/>
+                        </WrapPanel>
+                        <RadioButton Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}" x:Name="rbAddEditRemove" Click="rbAddEditRemove_Click">Добавление, редактирование и удаление вопросов</RadioButton>
+                        <RadioButton Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}" >...</RadioButton>
+                    </StackPanel>-->
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">О программе</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TextBlock Text="Выпускная квалификационная работа."/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+        <!--<TextBlock Grid.Column="1" Grid.Row="1" x:Name="tbAnswer" Text="Добро пожаловать в справку!"/>-->
+        <RichTextBox Grid.Column="1" Grid.Row="1" x:Name="rtbAnswer" IsReadOnly="True">
+            <FlowDocument x:Name="fdAnswers">
+                <Paragraph FontSize="18" TextAlignment="Center">
+                    <Run FontWeight="Bold" Text="~ Выберите тематику слева ~"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</Page>
