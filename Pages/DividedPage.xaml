@@ -20,13 +20,13 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.ColumnSpan="2">
             <WrapPanel>
-            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0"  Margin = "5" Content="Назад"/>
-            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0" Margin = "5" Content="Вперёд"/>
-            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0" Margin = "5" Content="Импорт" Click="Open_Executed"/>
-            <Button Style="{StaticResource MaterialDesignFlatLightButton}" Padding="0" Margin = "5" Content="Экспорт" Click="Save_Executed"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5"  Margin = "5" Content="Назад"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin = "5" Content="Вперёд"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin = "5" Content="Импорт" Click="Open_Executed"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin = "5" Content="Экспорт" Click="Save_Executed" />
             </WrapPanel>
 
-            <TextBox Style="{StaticResource Search}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+            <TextBox VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="0" Margin="10" TextChanged="TextBox_TextChanged"/>
         </StackPanel>
         <TabControl Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem>
@@ -54,15 +54,6 @@
                             </WrapPanel>
                         </ListViewItem>
                     </ListView>
-                    <!--<StackPanel HorizontalAlignment="Left">
-                        <WrapPanel>
-                            <RadioButton Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}" x:Name="rbHello" IsChecked="True">
-                            </RadioButton>
-                            <TextBlock Text="Добро пожаловать!"/>
-                        </WrapPanel>
-                        <RadioButton Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}" x:Name="rbAddEditRemove" Click="rbAddEditRemove_Click">Добавление, редактирование и удаление вопросов</RadioButton>
-                        <RadioButton Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}" >...</RadioButton>
-                    </StackPanel>-->
                 </TabItem.Content>
             </TabItem>
             <TabItem>
@@ -76,7 +67,6 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
-        <!--<TextBlock Grid.Column="1" Grid.Row="1" x:Name="tbAnswer" Text="Добро пожаловать в справку!"/>-->
         <RichTextBox Grid.Column="1" Grid.Row="1" x:Name="rtbAnswer" IsReadOnly="True">
             <FlowDocument x:Name="fdAnswers">
                 <Paragraph FontSize="18" TextAlignment="Center">
