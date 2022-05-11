@@ -3,6 +3,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using helpdesk.Baza;
+using helpdesk.Windows;
+using System.Linq;
 
 namespace helpdesk.Pages
 {
@@ -11,9 +14,18 @@ namespace helpdesk.Pages
     /// </summary>
     public partial class DividedPage : Page
     {
+        Entities Entities = new Entities();
         public DividedPage()
         {
             InitializeComponent();
+            RunTest.Text = "Добро пожаловать, " + AuthWindow.acc.Rank.RankName + " " + AuthWindow.acc.Login + "\n\n~    Выберите пункт слева для перехода к справочной информации.    ~";
+            if (AuthWindow.acc.IDRank != 1)
+            {
+                Bward.IsEnabled = false;
+                Fward.IsEnabled = false;
+                Open.IsEnabled = false;
+            }
+
         }
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)

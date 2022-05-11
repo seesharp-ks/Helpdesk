@@ -20,10 +20,10 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.ColumnSpan="2">
             <WrapPanel>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5"  Margin = "5" Content="Назад"/>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin = "5" Content="Вперёд"/>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin = "5" Content="Импорт" Click="Open_Executed"/>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin = "5" Content="Экспорт" Click="Save_Executed" />
+                <Button x:Name="Bward" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Назад" Padding="1"  Margin="1 1 25 1" HorizontalContentAlignment="Center" />
+                <Button x:Name="Fward" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Вперёд" Padding="1" Margin="1 1 25 1" HorizontalContentAlignment="Center" />
+                <Button x:Name="Open" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Ввод" Padding="1"  Margin="1 1 25 1"  Click="Open_Executed" HorizontalContentAlignment="Center" />
+                <Button x:Name="Save" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Вывод" Padding="1"  Margin="1 1 25 1"  Click="Save_Executed" HorizontalContentAlignment="Center"/>
             </WrapPanel>
 
             <TextBox VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="0" Margin="10" TextChanged="TextBox_TextChanged"/>
@@ -67,11 +67,15 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
-        <RichTextBox Grid.Column="1" Grid.Row="1" x:Name="rtbAnswer" IsReadOnly="True">
+        <RichTextBox IsReadOnly="True" IsDocumentEnabled="True" Grid.Column="1" Grid.Row="1" x:Name="rtbAnswer">
             <FlowDocument x:Name="fdAnswers">
                 <Paragraph FontSize="18" TextAlignment="Center">
-                    <Run FontWeight="Bold" Text="~ Выберите тематику слева ~"/>
+                    <Run FontWeight="Bold" x:Name="RunTest"/>
                 </Paragraph>
+                <!--<Paragraph>
+                    <WebBrowser Visibility="Hidden" Width="500" Height="500" Source="https://blank.page"></WebBrowser>
+                </Paragraph>-->
+
             </FlowDocument>
         </RichTextBox>
     </Grid>
