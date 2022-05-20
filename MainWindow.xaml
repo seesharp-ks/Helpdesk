@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:helpdesk"
         mc:Ignorable="d"
-        Title="Справочная система СС" Height="900" Width="1600">
+        Title="Справочная система СС" Height="900" Width="1600" Closed="Window_Closed" Icon="pack://application:,,,/Resources/logo.png">
     <Grid>
         <Frame x:Name="MainFrame"/>
     </Grid>

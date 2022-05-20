@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using helpdesk.Pages;
+using helpdesk.Windows;
 
 namespace helpdesk
 {
@@ -26,6 +27,13 @@ namespace helpdesk
             InitializeComponent(); //https://metanit.com/sharp/wpf/5.10.php TabControl; https://www.wpf-tutorial.com/rich-text-controls/richtextbox-control/ RichTextBox; https://www.wpf-tutorial.com/rich-text-controls/how-to-creating-a-rich-text-editor/ RichTextEditor;
             MainFrame.Navigate(new DividedPage());
             //https://www.codeproject.com/Articles/30134/LINQ-group-by-and-WPF-Data-Binding -- Список
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            MainFrame.NavigationService.RemoveBackEntry();
+            MainFrame.Content = null;
+            Application.Current.Shutdown();            //this.Close();
         }
     }
 }
