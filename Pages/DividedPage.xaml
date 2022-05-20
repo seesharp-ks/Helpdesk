@@ -9,7 +9,7 @@
       d:DesignHeight="900" d:DesignWidth="1600"
       Title="DividedPage">
 
-    <Grid>
+    <Grid Background="#000C40">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -20,13 +20,13 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.ColumnSpan="2">
             <WrapPanel>
-                <Button x:Name="Bward" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Назад" Padding="1"  Margin="1 1 25 1" HorizontalContentAlignment="Center" />
-                <Button x:Name="Fward" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Вперёд" Padding="1" Margin="1 1 25 1" HorizontalContentAlignment="Center" />
-                <Button x:Name="Open" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Ввод" Padding="1"  Margin="1 1 25 1"  Click="Open_Executed" HorizontalContentAlignment="Center" />
-                <Button x:Name="Save" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Вывод" Padding="1"  Margin="1 1 25 1"  Click="Save_Executed" HorizontalContentAlignment="Center"/>
+                <!--<Button x:Name="Bward" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Назад" Padding="1"  Margin="1 1 25 1" HorizontalContentAlignment="Center" />
+                <Button x:Name="Fward" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Вперёд" Padding="1" Margin="1 1 25 1" HorizontalContentAlignment="Center" />-->
+                <Button x:Name="Open" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Ввод" Padding="1"  Margin="1 1 25 1"  Click="Open_Executed" HorizontalContentAlignment="Center" Background="#0071BC"/>
+                <Button x:Name="Save" Style="{StaticResource MaterialDesignFloatingActionButton}" FontSize="11" Content="Вывод" Padding="1"  Margin="1 1 25 1"  Click="Save_Executed" HorizontalContentAlignment="Center" Cursor="Hand" Background="#0071BC"/>
             </WrapPanel>
 
-            <TextBox VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="0" Margin="10" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="tbSearch" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="0" Margin="10" TextChanged="tbSearch_TextChanged"/>
         </StackPanel>
         <TabControl Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem>
@@ -36,20 +36,36 @@
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <ListView x:Name="lvMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView x:Name="lvMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
                         <ListViewItem x:Name="lviWelcome" Height="60" Selected="lviWelcome_Selected" IsSelected="False" >
-                            <WrapPanel>
+                            <WrapPanel Background="Transparent">
                                 <materialDesign:PackIcon Margin="7"
                                         Kind="HumanGreetingVariant" Width="30" Height="30"/>
                                 <TextBlock Text="Добро пожаловать!"  
                                            Margin="20 10" VerticalAlignment="Center"/>
                             </WrapPanel>
                         </ListViewItem>
+                        <ListViewItem x:Name="lviTemporary" Height="60" Selected="lviTemporary_Selected">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Margin="7"
+                                        Kind="QuestionMark" Width="30" Height="30"/>
+                                <TextBlock Text="Пример вопроса."  
+                                           Margin="20 0 0 0" VerticalAlignment="Center"/>
+                            </WrapPanel>
+                        </ListViewItem>
                         <ListViewItem x:Name="lviAddEditDelete" Height="60" Selected="lviAddEditDelete_Selected">
                             <WrapPanel>
                                 <materialDesign:PackIcon Margin="7"
                                         Kind="CommentEditOutline" Width="30" Height="30"/>
-                                <TextBlock Text="Добавление - редактирование - удаление вопросов и ответов в СС."  
+                                <TextBlock Text="Работа со справочной системой -- Сотрудник."  
+                                           Margin="20 0 0 0" VerticalAlignment="Center"/>
+                            </WrapPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="lviAddEditDeleteOp" Height="60" Selected="lviAddEditDeleteOp_Selected" Visibility="Hidden">
+                            <WrapPanel>
+                                <materialDesign:PackIcon Margin="7"
+                                        Kind="CommentEditOutline" Width="30" Height="30"/>
+                                <TextBlock Text="Работа со справочной системой -- Администратор."  
                                            Margin="20 0 0 0" VerticalAlignment="Center"/>
                             </WrapPanel>
                         </ListViewItem>
@@ -67,15 +83,11 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
-        <RichTextBox IsReadOnly="True" IsDocumentEnabled="True" Grid.Column="1" Grid.Row="1" x:Name="rtbAnswer">
+        <RichTextBox IsReadOnly="True" IsDocumentEnabled="True" Grid.Column="1" Grid.Row="1" x:Name="rtbAnswer" Background="Beige">
             <FlowDocument x:Name="fdAnswers">
                 <Paragraph FontSize="18" TextAlignment="Center">
                     <Run FontWeight="Bold" x:Name="RunTest"/>
                 </Paragraph>
-                <!--<Paragraph>
-                    <WebBrowser Visibility="Hidden" Width="500" Height="500" Source="https://blank.page"></WebBrowser>
-                </Paragraph>-->
-
             </FlowDocument>
         </RichTextBox>
     </Grid>

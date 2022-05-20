@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:helpdesk.Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Авторизация" MaxHeight="300" MaxWidth="300" Width="300" Height="300" ResizeMode="NoResize">
-    <Grid>
+        Title="Авторизация" MaxHeight="300" MaxWidth="300" Width="300" Height="300" ResizeMode="NoResize" Icon="pack://application:,,,/Resources/logo.png">
+    <Grid Background="#000C40">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="5*"/>
@@ -17,16 +17,16 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
-        <materialDesign:PackIcon Grid.ColumnSpan="2" Margin="7" Kind="BookOpenPageVariant" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBlock Grid.ColumnSpan="2" Text="Справочная система" Margin="10" Style="{StaticResource MaterialDesignBody1TextBlock}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <materialDesign:PackIcon Grid.Column="0" Margin="7" Kind="BookOpenPageVariant" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="GhostWhite"/>
+        <TextBlock FontFamily="Cascadia Code" Grid.Column="1" Text="Справочная система" Margin="10" Style="{StaticResource MaterialDesignBody1TextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="GhostWhite"/>
         <WrapPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <TextBlock Text="Логин:" Margin="10" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
-            <TextBlock Text="Пароль:" Margin="10" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
+            <TextBlock FontFamily="Global Sans Serif" Text="Логин:" Margin="10" Style="{StaticResource MaterialDesignBody1TextBlock}" Foreground="GhostWhite" HorizontalAlignment="Right"/>
+            <TextBlock FontFamily="Global Sans Serif" Text="Пароль:" Margin="10" Style="{StaticResource MaterialDesignBody1TextBlock}" Foreground="GhostWhite" HorizontalAlignment="Right"/>
         </WrapPanel>
         <WrapPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <TextBox Style="{StaticResource MaterialDesignTextBoxBase}" Width="200" Margin="10" Height="40" x:Name="tbLogin" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
-            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="200" Margin="10" Height="40" x:Name="pbPass" MaxLength="20" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"/>
+            <TextBox Background="#33F0F2F0" Style="{StaticResource MaterialDesignTextBoxBase}" Width="200" Margin="10" Height="40" x:Name="tbLogin" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Foreground="#c0c0aa" FontWeight="Bold" Cursor="Arrow"/>
+            <PasswordBox Background="#33F0F2F0" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="200" Margin="10" Height="40" x:Name="pbPass" MaxLength="20" FontSize="14" HorizontalContentAlignment="Center" Foreground="#c0c0aa" FontWeight="Bold" VerticalContentAlignment="Bottom"/>
         </WrapPanel>
-        <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Content="Войти" Style="{StaticResource MaterialDesignFloatingActionButton}" x:Name="btnAuthorize" Click="btnAuthorize_Click"/>
+        <Button Background="#0071BC" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Content="Войти" Style="{StaticResource MaterialDesignFloatingActionButton}" x:Name="btnAuthorize" Click="btnAuthorize_Click"/>
     </Grid>
 </Window>

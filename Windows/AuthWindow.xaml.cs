@@ -38,7 +38,7 @@ namespace helpdesk.Windows
             }
             else
             {
-                if (tbLogin.Text.Length == 0 && pbPass.Password.Length != 0)
+                if (tbLogin.Text.Length != 0 && pbPass.Password.Length == 0)
                     MessageBox.Show("Вы не ввели пароль.", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Error);
                 else if (tbLogin.Text.Length == 0 && pbPass.Password.Length == 0)
                     MessageBox.Show("Вы не заполнили данные для авторизации.", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Error);
