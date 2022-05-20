@@ -30,16 +30,6 @@
     <Property Name="RankName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Account" Relationship="Self.FK__Account__IDRank__3A81B327" FromRole="Rank" ToRole="Account" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <Association Name="FK__Account__IDRank__3A81B327">
     <End Role="Rank" Type="Self.Rank" Multiplicity="0..1" />
     <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -68,7 +58,6 @@
     <EntitySet Name="Account" EntityType="Self.Account" />
     <EntitySet Name="QA" EntityType="Self.QA" />
     <EntitySet Name="Rank" EntityType="Self.Rank" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <AssociationSet Name="FK__Account__IDRank__3A81B327" Association="Self.FK__Account__IDRank__3A81B327">
       <End Role="Rank" EntitySet="Rank" />
       <End Role="Account" EntitySet="Account" />
